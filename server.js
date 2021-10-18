@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require('dotenv');
-const morgan = require("morgan");
+// const morgan = require("morgan");
 
 const database = require('./config/database')
 
@@ -27,7 +27,7 @@ app.use(cors())
 
 // middleware
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 // Router
 app.get('/', (req, res) => {
