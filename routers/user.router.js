@@ -7,6 +7,9 @@ router.route('/')
     .get(userController.index)
     .post(userController.newUser)
 
+router.route('/login')
+    .post(userController.login)
+    
 router.route('/:id')
     .get(userController.getUser)
     .patch(userController.updateUser)
@@ -15,7 +18,7 @@ router.route('/:id')
 router.route('/:id/bill')
     .get(userController.getUserBill)
 
-    router.route('/:id/changePassword')
+router.route('/:id/changePassword')
     .post(userController.changePassUser)
 
 module.exports = router;

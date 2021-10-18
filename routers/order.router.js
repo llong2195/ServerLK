@@ -12,6 +12,6 @@ router.route('/:id')
     .patch(orderController.updateOrder)
     .delete(orderController.deleteOrder)
 
-router.route('/:id/sendmail')
+router.route('/sendmail')
     .get(orderController.sendMail)
 module.exports = router;

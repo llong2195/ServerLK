@@ -3,7 +3,7 @@ const cors = require("cors");
 const dotenv = require('dotenv');
 // const morgan = require("morgan");
 
-const database = require('./config/database')
+const database = require('./config/database');
 
 // router
 const userRouter = require('./routers/user.router.js')

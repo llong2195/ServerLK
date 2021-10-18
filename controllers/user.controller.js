@@ -100,7 +100,34 @@ const getUserBill = async (req, res, next) => {
         next(err);
     }
 }
-
+const login = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        let { userName, pass } = req.body;
+        pass = await md5(md5(pass));
+        console.log(pass);
+        const user = await userModel.find({
+            $and: [
+                { $or: [{ phone: userName }, { email: userName }] },
+                { password: pass }
+            ]
+        });
+        console.log(user);
+        if (user.length > 0) {
+            return res.status(200).json({
+                "status": true,
+                "userLogin": user[0]
+            })
+        } else {
+            return res.status(200).json({
+                "status": false,
+                message: "pls check your oldPassword"
+            })
+        }
+    } catch (err) {
+        next(err);
+    }
+}
 module.exports = {
     index,
     newUser,
@@ -109,4 +136,5 @@ module.exports = {
     changePassUser,
     deleteUser,
     getUserBill,
+    login
 }
