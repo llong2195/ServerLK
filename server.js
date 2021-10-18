@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require('dotenv');
-// const morgan = require("morgan");
+const morgan = require("morgan");
 
 const database = require('./config/database');
 
@@ -11,6 +11,7 @@ const categoryRouter = require('./routers/category.router.js')
 const productRouter = require('./routers/product.router.js')
 const orderRouter = require('./routers/order.router.js')
 const typeRouter = require('./routers/type.router.js')
+const sendMailRouter = require('./routers/sendMail.router.js')
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -27,7 +28,7 @@ app.use(cors())
 
 // middleware
 
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 
 // Router
 app.get('/', (req, res) => {
@@ -41,6 +42,7 @@ app.use("/category", categoryRouter);
 app.use("/type", typeRouter)
 app.use("/product", productRouter);
 app.use("/order", orderRouter);
+app.use("/sendMail", sendMailRouter);
 
 // catch 404 err
 app.use((req, res, next) => {

@@ -19,9 +19,9 @@
     <% for(let item of items){%>
     <% console.log(item) %>
     <tr>
-    	<td width="70%"><%=item.prd.name%></td>
+    	<td width="70%"><%=item.name%></td>
         <td width="10%"><%=item.qty%></td>
-        <td width="20%"><%= new Intl.NumberFormat("vi-VN", {style: "currency", currency: "VND"}).format(item.qty*item.prd.price)%></td>
+        <td width="20%"><%= new Intl.NumberFormat("vi-VN", {style: "currency", currency: "VND"}).format(item.qty*item.price)%></td>
     </tr>
     <% }%>
     <tr>

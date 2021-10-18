@@ -4,12 +4,12 @@ const router = express.Router();
 const userController = require('../controllers/user.controller.js')
 
 router.route('/')
-    .get(userController.index)
-    .post(userController.newUser)
+    .get(userController.index)  // get all
+    .post(userController.newUser) // 
 
 router.route('/login')
     .post(userController.login)
-    
+
 router.route('/:id')
     .get(userController.getUser)
     .patch(userController.updateUser)
