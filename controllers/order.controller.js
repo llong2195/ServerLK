@@ -27,7 +27,7 @@ const newOrder = async (req, res, next) => {
                 newOrder.price += item.qty * prd.price;
             }
         } else {
-            const err = new Error("prd is required, qty > 0")
+            const err = new Error("prd is required, qty > 0");
             err.status = 204;
             throw err;
         }
@@ -60,8 +60,7 @@ const updateOrder = async (req, res, next) => {
     try {
         const { id } = req.params;
         const newOrder = req.body;
-        if (newOrder.password)
-            delete newOrder.password;
+        
         await orderModel.findByIdAndUpdate(id, newOrder);
         return res.status(200).json({
             message: "success"
@@ -90,7 +89,7 @@ const sendMail = async (req, res, next) => {
             path: 'product',
             populate: { path: 'prd' }
         }, { path: "owner" }]);;
-        console.log(bill.product);
+        console.log(bill);
         const html = await ejs.renderFile(
             path.join(__dirname, "../template/order.ejs"),
             {
