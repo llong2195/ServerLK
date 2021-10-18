@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "test": "nodemon server.js",
-    "test2": "nodemon server.js > log-file.log 2> error-file.log"
+    "test": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
